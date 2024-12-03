@@ -1,0 +1,21 @@
+{
+  "name": "mf-different-react-versions-test",
+  "description": "This example demos the ability to load two separate versions of react (v16.6.3 and v16.13.1).",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "pnpm --filter mf-different-react-versions-test_app* --parallel start",
+    "legacy:start": "pnpm --filter mf-different-react-versions-test_app* --parallel legacy:start",
+    "build": "pnpm --filter mf-different-react-versions-test_app* build",
+    "legacy:build": "pnpm --filter mf-different-react-versions-test_app* legacy:build",
+    "serve": "pnpm --filter mf-different-react-versions-test_app* --parallel serve",
+    "clean": "pnpm --filter mf-different-react-versions-test_app* --parallel clean",
+    "e2e:ci": "pnpm start & wait-on http-get://localhost:3001/ && npx cypress run --config-file ../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome",
+    "legacy:e2e:ci": "pnpm legacy:start & wait-on http-get://localhost:3001/ && npx cypress run --config-file ../cypress-e2e/config/cypress.config.ts --config '{\"supportFile\": \"../cypress-e2e/support/e2e.ts\"}' --spec \"./e2e/*.cy.ts\" --browser=chrome"
+  },
+  "devDependencies": {
+    "wait-on": "7.2.0"
+  },
+  "dependencies": {
+    "pnpm": "^9.14.4"
+  }
+}
